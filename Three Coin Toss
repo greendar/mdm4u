@@ -1,0 +1,79 @@
+
+import random
+
+countA = 0
+countB = 0
+countC = 0
+countD = 0
+
+def flip():
+    a = random.randint(0,1)
+    print(a, end=" ")
+    return a
+        
+def testA(f1, f2, f3):
+    """ 
+    test A looks for 3 heads
+    """
+    global countA
+    if (f1 + f2 + f3) == 3:
+        countA += 1
+        return True
+    else:
+        return False
+
+def testB(f1, f2, f3):
+    """ 
+    test B looks for exactly 2 heads
+    """
+    global countB
+    if (f1 + f2 + f3) == 2:
+        countB += 1
+        return True
+    else:
+        return False
+
+def testC(f1, f2, f3):
+    """ 
+    test C looks for exactly 1 heads
+    """
+    global countC
+    if (f1 + f2 + f3) == 1:
+        countC += 1
+        return True
+    else:
+        return False
+
+def testD(f1, f2, f3):
+    """ 
+    test D looks for exactly 0 heads
+    """
+    global countD
+    if (f1 + f2 + f3) == 0:
+        countD += 1
+        return True
+    else:
+        return False
+
+try:
+    n = int(input("How many Tosses? (default 1000)"))
+except:
+    n = 1000
+
+print('n value of: ', n)   
+for i in range(n):
+    flip1 = flip()
+    flip2 = flip()
+    flip3 = flip()
+    print(testA(flip1, flip2, flip3), end=" ")
+    print(testB(flip1, flip2, flip3), end=" ")
+    print(testC(flip1, flip2, flip3), end=" ")
+    print(testD(flip1, flip2, flip3), end=" ")
+    print()
+    
+    
+print('Count A: ', countA)
+print('Count B: ', countB)
+print('Count C: ', countC)
+print('Count D: ', countD)
+
